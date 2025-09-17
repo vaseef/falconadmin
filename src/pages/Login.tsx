@@ -7,6 +7,7 @@ import axios from 'axios';
 // Set the backend base URL globally
 //axios.defaults.baseURL = 'https://localhost:7045';
 axios.defaults.baseURL = 'https://falconadmin-backend.azurewebsites.net/';
+// path set
 
 interface LoginProps {
     onLoginSuccess: () => void;
