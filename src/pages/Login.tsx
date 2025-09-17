@@ -44,7 +44,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '5rem' }}>
-            <Typography variant="h4">Login</Typography>
+            <Typography variant="h4">Login to portal</Typography>
             <TextField 
                 label="Username" 
                 margin="normal" 
