@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/falconadmin/static/css/main.e6c13ad2.css",
-    "main.js": "/falconadmin/static/js/main.be8d9b61.js",
+    "main.js": "/falconadmin/static/js/main.17727d00.js",
     "static/js/453.4aafac07.chunk.js": "/falconadmin/static/js/453.4aafac07.chunk.js",
     "index.html": "/falconadmin/index.html",
     "main.e6c13ad2.css.map": "/falconadmin/static/css/main.e6c13ad2.css.map",
-    "main.be8d9b61.js.map": "/falconadmin/static/js/main.be8d9b61.js.map",
+    "main.17727d00.js.map": "/falconadmin/static/js/main.17727d00.js.map",
     "453.4aafac07.chunk.js.map": "/falconadmin/static/js/453.4aafac07.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.be8d9b61.js"
+    "static/js/main.17727d00.js"
   ]
 }
