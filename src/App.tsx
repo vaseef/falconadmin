@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Sidebar from './components/Sidebar';
 import Login from './pages/Login';
@@ -45,7 +45,7 @@ const App = () => {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <Router>
+            <Router basename="/falconadmin">
                 <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
                     <AppBar position="static" style={{ backgroundColor: 'black' }}>
                         <Toolbar style={{ justifyContent: 'space-between' }}>
@@ -69,20 +69,62 @@ const App = () => {
                                 backgroundColor: 'offwhite',
                             }}
                         >
-                            <Routes>
-                                {/* Only redirect to dashboard if user is authenticated */}
-                                {/* <Route path="/" element={isAuthenticated ? <Dashboard /> : <Login onLoginSuccess={handleLoginSuccess} />} /> */}
-                                <Route path="Dashboard" element={isAuthenticated ? <Dashboard /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="dayreport" element={isAuthenticated ? <DayReport /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="Last7Days" element={isAuthenticated ? <Last7Days /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="monthlyreport" element={isAuthenticated ? <MonthlyReport /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="PendingAmounts" element={isAuthenticated ? <PendingAmounts /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="InvoiceGenerate" element={isAuthenticated ? <InvoiceGenerate /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="UploadPage" element={isAuthenticated ? <UploadPage /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="ConfigManager" element={isAuthenticated ? <ConfigManager /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="AddressBook" element={isAuthenticated ? <AddressBook /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                                <Route path="InvoiceGenerateTest" element={isAuthenticated ? <InvoiceGenerateTest /> : <Login onLoginSuccess={handleLoginSuccess} />} />
-                            </Routes>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={
+                                isAuthenticated ? (
+                                    <Dashboard />
+                                ) : (
+                                    <Login onLoginSuccess={handleLoginSuccess} />
+                                )
+                                }
+                            />
+                            <Route path="/login" element={<Login onLoginSuccess={handleLoginSuccess} />} />
+                        {/* Your other routes */}
+                        <Route
+                            path="Dashboard"
+                            element={isAuthenticated ? <Dashboard /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="dayreport"
+                            element={isAuthenticated ? <DayReport /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="Last7Days"
+                            element={isAuthenticated ? <Last7Days /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="monthlyreport"
+                            element={isAuthenticated ? <MonthlyReport /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="PendingAmounts"
+                            element={isAuthenticated ? <PendingAmounts /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="InvoiceGenerate"
+                            element={isAuthenticated ? <InvoiceGenerate /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="UploadPage"
+                            element={isAuthenticated ? <UploadPage /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="ConfigManager"
+                            element={isAuthenticated ? <ConfigManager /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="AddressBook"
+                            element={isAuthenticated ? <AddressBook /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        <Route
+                            path="InvoiceGenerateTest"
+                            element={isAuthenticated ? <InvoiceGenerateTest /> : <Login onLoginSuccess={handleLoginSuccess} />}
+                        />
+                        {/* catch-all */}
+                        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />} />
+                        </Routes>
                         </main>
                     </div>
                 </div>
